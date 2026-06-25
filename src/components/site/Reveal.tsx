@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { motion, type MotionProps } from "framer-motion";
 import type { ReactNode } from "react";
 
@@ -23,40 +24,10 @@ export function Reveal({
 }
 
 export function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
-  return (
-    <motion.span
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.3 }}
-    >
-      <motion.span
-        initial={{ "--n": 0 } as any}
-        whileInView={{ "--n": to } as any}
-        viewport={{ once: true }}
-        transition={{ duration: 1.6, ease: "easeOut" }}
-        onUpdate={(latest: any) => {
-          const v = Math.round(Number(latest["--n"]));
-          (window as any).__n = v;
-        }}
-      >
-        <CountText to={to} />
-      </motion.span>
-      {suffix}
-    </motion.span>
-  );
-}
-
-function CountText({ to }: { to: number }) {
-  // Simple animated count with rAF
-  return <RAFCounter to={to} />;
-}
-
-import { useEffect, useRef, useState } from "react";
-function RAFCounter({ to }: { to: number }) {
   const [v, setV] = useState(0);
   const ref = useRef<HTMLSpanElement | null>(null);
   const started = useRef(false);
+
   useEffect(() => {
     if (!ref.current) return;
     const io = new IntersectionObserver((entries) => {
@@ -78,5 +49,11 @@ function RAFCounter({ to }: { to: number }) {
     io.observe(ref.current);
     return () => io.disconnect();
   }, [to]);
-  return <span ref={ref}>{v.toLocaleString()}</span>;
+
+  return (
+    <span ref={ref}>
+      {v.toLocaleString()}
+      {suffix}
+    </span>
+  );
 }
