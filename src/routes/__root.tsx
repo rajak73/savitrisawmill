@@ -73,27 +73,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" },
     ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "Savitri Saw Mill",
-          url: "/",
-          foundingDate: "1987",
-          description: "Premium timber processing and manufacturing.",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Industrial Estate, Plot 14, Sector 7",
-            addressLocality: "Nagpur",
-            addressRegion: "Maharashtra",
-            postalCode: "440018",
-            addressCountry: "IN",
-          },
-        }),
-      },
-    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
