@@ -66,6 +66,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#1F2937" },
+      { property: "og:title", content: "Savitri Saw Mill — Quality Timber. Precision Cutting." },
+      { name: "twitter:title", content: "Savitri Saw Mill — Quality Timber. Precision Cutting." },
+      { property: "og:description", content: "Premium timber processing for construction, furniture and industrial applications. Bulk supply, custom cutting and pan-India delivery." },
+      { name: "twitter:description", content: "Premium timber processing for construction, furniture and industrial applications. Bulk supply, custom cutting and pan-India delivery." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8f0825ab-1c89-4c7c-a3a1-ce43b9e1750d/id-preview-e69300ef--21383a2d-f6c8-4023-8ea3-127a7dc6ad1a.lovable.app-1782396548471.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8f0825ab-1c89-4c7c-a3a1-ce43b9e1750d/id-preview-e69300ef--21383a2d-f6c8-4023-8ea3-127a7dc6ad1a.lovable.app-1782396548471.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
