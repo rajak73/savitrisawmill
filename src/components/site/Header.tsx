@@ -56,7 +56,7 @@ export function Header() {
               key={n.to}
               to={n.to}
               activeOptions={{ exact: n.to === "/" }}
-              className="group text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground hover:text-amber-400 transition-colors duration-300 data-[status=active]:text-amber-400 relative py-1 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-full after:bg-amber-400 after:origin-left after:scale-x-0 hover:after:scale-x-100 data-[status=active]:after:scale-x-100 after:transition-transform after:duration-300"
+              className="group text-xs font-semibold uppercase tracking-[0.18em] text-white hover:text-amber-400 transition-colors duration-300 data-[status=active]:text-amber-400 relative py-1 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-full after:bg-amber-400 after:origin-left after:scale-x-0 hover:after:scale-x-100 data-[status=active]:after:scale-x-100 after:transition-transform after:duration-300"
             >
               {n.label}
             </Link>
