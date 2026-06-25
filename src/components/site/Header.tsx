@@ -31,10 +31,20 @@ export function Header() {
             S
           </span>
           <span className="flex flex-col leading-tight">
-            <span className="font-display text-base uppercase tracking-wider bg-gradient-to-r from-amber-300 via-amber-400 to-amber-600 bg-clip-text text-transparent">
+            <span
+              className={`font-display text-base uppercase tracking-wider transition-colors ${
+                scrolled
+                  ? "text-foreground"
+                  : "bg-gradient-to-r from-amber-300 via-amber-400 to-amber-600 bg-clip-text text-transparent"
+              }`}
+            >
               {COMPANY.short}
             </span>
-            <span className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+            <span
+              className={`text-[10px] uppercase tracking-[0.22em] transition-colors ${
+                scrolled ? "text-foreground/70" : "text-amber-200/70"
+              }`}
+            >
               Saw Mill · Est. {COMPANY.established}
             </span>
           </span>
