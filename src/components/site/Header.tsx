@@ -42,7 +42,7 @@ export function Header() {
             </span>
             <span
               className={`text-[10px] uppercase tracking-[0.22em] transition-colors ${
-                scrolled ? "text-foreground/70" : "text-amber-200/70"
+                scrolled ? "text-foreground" : "text-amber-100/90"
               }`}
             >
               Saw Mill · Est. {COMPANY.established}
