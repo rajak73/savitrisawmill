@@ -5,7 +5,11 @@ export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
       { title: "Privacy Policy — Savitri Saw Mill" },
-      { name: "description", content: "How Savitri Saw Mill collects, uses and protects information submitted through this website." },
+      {
+        name: "description",
+        content:
+          "How Savitri Saw Mill collects, uses and protects information submitted through this website.",
+      },
       { property: "og:title", content: "Privacy Policy — Savitri Saw Mill" },
       { property: "og:url", content: "/privacy" },
       { name: "robots", content: "noindex" },
@@ -23,8 +27,8 @@ function Privacy() {
           <div className="eyebrow text-highlight">Legal</div>
           <h1 className="display-xl mt-6 text-white">Privacy Policy</h1>
           <p className="mt-6 max-w-2xl text-white/70">
-            This page explains what information we collect through this website, how it is used,
-            and the choices you have. This page is maintained by {COMPANY.name}.
+            This page explains what information we collect through this website, how it is used, and
+            the choices you have. This page is maintained by {COMPANY.name}.
           </p>
         </div>
       </section>
@@ -35,7 +39,9 @@ function Privacy() {
             <div key={s.t} className="mb-12">
               <h2 className="display-md">{s.t}</h2>
               <div className="mt-4 space-y-4 text-muted-foreground leading-relaxed">
-                {s.p.map((p, i) => <p key={i}>{p}</p>)}
+                {s.p.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
               </div>
             </div>
           ))}

@@ -8,9 +8,16 @@ export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
       { title: "Products — Timber, Beams & Custom Cuts | Savitri Saw Mill" },
-      { name: "description", content: "Explore our full range — premium hardwood, softwood, structural beams, planks and custom-milled industrial timber." },
+      {
+        name: "description",
+        content:
+          "Explore our full range — premium hardwood, softwood, structural beams, planks and custom-milled industrial timber.",
+      },
       { property: "og:title", content: "Timber Products — Savitri Saw Mill" },
-      { property: "og:description", content: "Premium timber, beams, planks and custom-cut profiles for B2B clients." },
+      {
+        property: "og:description",
+        content: "Premium timber, beams, planks and custom-cut profiles for B2B clients.",
+      },
       { property: "og:url", content: "/products" },
     ],
     links: [{ rel: "canonical", href: "/products" }],
@@ -42,8 +49,8 @@ function Products() {
               Timber engineered for every application.
             </h1>
             <p className="mt-8 max-w-2xl text-lg text-white/70">
-              From structural beams to fine furniture-grade hardwood — every product
-              graded, dried and milled to spec.
+              From structural beams to fine furniture-grade hardwood — every product graded, dried
+              and milled to spec.
             </p>
           </Reveal>
         </div>
@@ -82,12 +89,16 @@ function Products() {
       <section className="py-20 md:py-24">
         <div className="container-x">
           {filtered.length === 0 ? (
-            <p className="text-center text-muted-foreground py-20">No products match your search.</p>
+            <p className="text-center text-muted-foreground py-20">
+              No products match your search.
+            </p>
           ) : (
             <div className="grid gap-12">
               {filtered.map((p, i) => (
                 <Reveal key={p.slug} delay={i * 0.05}>
-                  <article className={`grid gap-8 lg:grid-cols-12 lg:gap-12 items-center ${i % 2 ? "lg:[&>div:first-child]:order-2" : ""}`}>
+                  <article
+                    className={`grid gap-8 lg:grid-cols-12 lg:gap-12 items-center ${i % 2 ? "lg:[&>div:first-child]:order-2" : ""}`}
+                  >
                     <div className="lg:col-span-7 overflow-hidden">
                       <img
                         src={p.image}
@@ -109,7 +120,10 @@ function Products() {
                         </div>
                         <div className="flex flex-wrap gap-2">
                           {p.applications.map((a) => (
-                            <span key={a} className="text-[11px] uppercase tracking-wider px-2.5 py-1 bg-muted border border-border">
+                            <span
+                              key={a}
+                              className="text-[11px] uppercase tracking-wider px-2.5 py-1 bg-muted border border-border"
+                            >
                               {a}
                             </span>
                           ))}

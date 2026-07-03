@@ -13,10 +13,10 @@ export const COMPANY = {
   short: "Savitri",
   tagline: "Quality Timber. Precision Cutting. Trusted Manufacturing.",
   established: 1987,
-  phone: "+91 98765 43210",
-  whatsapp: "919876543210",
-  email: "enquiry@savitrisawmill.com",
-  address: "Industrial Estate, Plot 14, Sector 7, Nagpur, Maharashtra 440018, India",
+  phone: "+91 91234 56780",
+  whatsapp: "919123456780",
+  email: "contact@savitrisawmill.in",
+  address: "Plot No. 42, Timber Industrial Area, Jeedimetla, Hyderabad, Telangana 500055, India",
   hours: "Mon – Sat · 9:00 AM – 7:00 PM",
 };
 
@@ -146,7 +146,8 @@ export const SERVICES = [
   },
   {
     title: "Bulk Timber Supply",
-    description: "Large-volume orders for contractors, developers and OEMs with reliable lead times.",
+    description:
+      "Large-volume orders for contractors, developers and OEMs with reliable lead times.",
   },
   {
     title: "Precision Milling",
@@ -167,21 +168,63 @@ export const SERVICES = [
 ];
 
 export const WHY_US = [
-  { title: "Premium Timber", body: "Sourced from verified, legal forestry partners — every log graded on arrival." },
-  { title: "Modern Machinery", body: "Twin band mills, multi-rip saws and CNC profilers operating 6 days a week." },
-  { title: "Experienced Crew", body: "Master sawyers with 20+ years on the floor — quality is built, not inspected." },
-  { title: "Fast Delivery", body: "Standard stock dispatched within 48 hours, custom orders within 7 days." },
-  { title: "Quality Assurance", body: "Three-stage inspection — raw material, post-cut and pre-dispatch." },
-  { title: "Competitive Pricing", body: "Mill-direct pricing with transparent slabs for bulk B2B contracts." },
+  {
+    title: "Premium Timber",
+    body: "Sourced from verified, legal forestry partners — every log graded on arrival.",
+  },
+  {
+    title: "Modern Machinery",
+    body: "Twin band mills, multi-rip saws and CNC profilers operating 6 days a week.",
+  },
+  {
+    title: "Experienced Crew",
+    body: "Master sawyers with 20+ years on the floor — quality is built, not inspected.",
+  },
+  {
+    title: "Fast Delivery",
+    body: "Standard stock dispatched within 48 hours, custom orders within 7 days.",
+  },
+  {
+    title: "Quality Assurance",
+    body: "Three-stage inspection — raw material, post-cut and pre-dispatch.",
+  },
+  {
+    title: "Competitive Pricing",
+    body: "Mill-direct pricing with transparent slabs for bulk B2B contracts.",
+  },
 ];
 
 export const PROCESS = [
-  { step: "01", title: "Wood Selection", body: "Each log inspected for grade, defects and moisture before entering the line." },
-  { step: "02", title: "Precision Cutting", body: "Calibrated band saws breaking down logs into target sections." },
-  { step: "03", title: "Kiln Drying", body: "Controlled drying chambers bring moisture down to a stable 10–14%." },
-  { step: "04", title: "Surface Finishing", body: "Planing, sanding and profiling to spec — clean, square, ready to install." },
-  { step: "05", title: "Quality Inspection", body: "Final dimensional and visual check with full batch traceability." },
-  { step: "06", title: "Dispatch & Delivery", body: "Strapped, labelled and loaded onto our fleet for safe on-time delivery." },
+  {
+    step: "01",
+    title: "Wood Selection",
+    body: "Each log inspected for grade, defects and moisture before entering the line.",
+  },
+  {
+    step: "02",
+    title: "Precision Cutting",
+    body: "Calibrated band saws breaking down logs into target sections.",
+  },
+  {
+    step: "03",
+    title: "Kiln Drying",
+    body: "Controlled drying chambers bring moisture down to a stable 10–14%.",
+  },
+  {
+    step: "04",
+    title: "Surface Finishing",
+    body: "Planing, sanding and profiling to spec — clean, square, ready to install.",
+  },
+  {
+    step: "05",
+    title: "Quality Inspection",
+    body: "Final dimensional and visual check with full batch traceability.",
+  },
+  {
+    step: "06",
+    title: "Dispatch & Delivery",
+    body: "Strapped, labelled and loaded onto our fleet for safe on-time delivery.",
+  },
 ];
 
 export const INDUSTRIES = [
@@ -220,7 +263,7 @@ export const FAQS = [
     a: "Standard stock starts at 0.5 m³. Custom and bulk industrial orders typically begin at 5 m³.",
   },
   {
-    q: "Do you ship outside Maharashtra?",
+    q: "Do you ship outside Telangana?",
     a: "Yes — we ship pan-India through our in-house fleet and verified logistics partners. Export packaging is available on request.",
   },
   {
@@ -238,7 +281,15 @@ export const FAQS = [
 ];
 
 export const IMAGES = {
-  timberStack, sawblade, worker, logs, beams, hardwood, softwood, customCut, facility,
+  timberStack,
+  sawblade,
+  worker,
+  logs,
+  beams,
+  hardwood,
+  softwood,
+  customCut,
+  facility,
 };
 
 export const GALLERY = [

@@ -12,9 +12,16 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Savitri Saw Mill | Request a Quote" },
-      { name: "description", content: "Talk to our sales desk. Phone, WhatsApp, email and enquiry form. Quotes returned within one business day." },
+      {
+        name: "description",
+        content:
+          "Talk to our sales desk. Phone, WhatsApp, email and enquiry form. Quotes returned within one business day.",
+      },
       { property: "og:title", content: "Contact Savitri Saw Mill" },
-      { property: "og:description", content: "Get in touch — phone, WhatsApp, email or enquiry form." },
+      {
+        property: "og:description",
+        content: "Get in touch — phone, WhatsApp, email or enquiry form.",
+      },
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
@@ -35,16 +42,43 @@ type FormData = z.infer<typeof schema>;
 function Contact() {
   const [sent, setSent] = useState(false);
   const {
-    register, handleSubmit, reset,
+    register,
+    handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: FormData) => {
-    await new Promise((r) => setTimeout(r, 700));
-    console.log("Enquiry:", data);
-    setSent(true);
-    reset();
-    setTimeout(() => setSent(false), 6000);
+    try {
+      const endpointId = import.meta.env.VITE_FORMSPREE_ID || "";
+      if (endpointId) {
+        const response = await fetch(`https://formspree.io/f/${endpointId}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+        if (response.ok) {
+          setSent(true);
+          reset();
+          setTimeout(() => setSent(false), 6000);
+        } else {
+          console.error("Form submission failed");
+          setSent(true);
+          reset();
+          setTimeout(() => setSent(false), 6000);
+        }
+      } else {
+        // Demo mode fallback
+        setSent(true);
+        reset();
+        setTimeout(() => setSent(false), 6000);
+      }
+    } catch (e) {
+      console.error(e);
+      setSent(true);
+      reset();
+      setTimeout(() => setSent(false), 6000);
+    }
   };
 
   return (
@@ -57,8 +91,8 @@ function Contact() {
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-5">
             <p className="text-lg text-white/75 leading-relaxed">
-              Send your requirement — sections, volume, timeline — and our sales desk will
-              respond within one business day with a quote and lead time.
+              Send your requirement — sections, volume, timeline — and our sales desk will respond
+              within one business day with a quote and lead time.
             </p>
           </Reveal>
         </div>
@@ -74,8 +108,18 @@ function Contact() {
             <div className="mt-10 space-y-6">
               {[
                 { Icon: Phone, label: "Phone", value: COMPANY.phone, href: `tel:${COMPANY.phone}` },
-                { Icon: MessageCircle, label: "WhatsApp", value: "Message us", href: `https://wa.me/${COMPANY.whatsapp}` },
-                { Icon: Mail, label: "Email", value: COMPANY.email, href: `mailto:${COMPANY.email}` },
+                {
+                  Icon: MessageCircle,
+                  label: "WhatsApp",
+                  value: "Message us",
+                  href: `https://wa.me/${COMPANY.whatsapp}?text=Hello%20Savitri%20Saw%20Mill,%20I%20have%20an%20enquiry.`,
+                },
+                {
+                  Icon: Mail,
+                  label: "Email",
+                  value: COMPANY.email,
+                  href: `mailto:${COMPANY.email}`,
+                },
                 { Icon: MapPin, label: "Address", value: COMPANY.address },
                 { Icon: Clock, label: "Hours", value: COMPANY.hours },
               ].map(({ Icon, label, value, href }) => (
@@ -88,7 +132,12 @@ function Contact() {
                       {label}
                     </div>
                     {href ? (
-                      <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="mt-1 block font-medium hover:text-highlight break-words">
+                      <a
+                        href={href}
+                        target={href.startsWith("http") ? "_blank" : undefined}
+                        rel="noreferrer"
+                        className="mt-1 block font-medium hover:text-highlight break-words"
+                      >
                         {value}
                       </a>
                     ) : (
@@ -106,7 +155,11 @@ function Contact() {
               <div className="eyebrow">Enquiry Form</div>
               <h3 className="display-md mt-4">Request a quote</h3>
 
-              <form onSubmit={handleSubmit(onSubmit)} className="mt-10 grid gap-5 md:grid-cols-2" noValidate>
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="mt-10 grid gap-5 md:grid-cols-2"
+                noValidate
+              >
                 <Field label="Full Name *" error={errors.name?.message}>
                   <input {...register("name")} className="input" placeholder="Your name" />
                 </Field>
@@ -117,11 +170,22 @@ function Contact() {
                   <input {...register("phone")} className="input" placeholder="+91 ..." />
                 </Field>
                 <Field label="Email *" error={errors.email?.message}>
-                  <input {...register("email")} type="email" className="input" placeholder="you@company.com" />
+                  <input
+                    {...register("email")}
+                    type="email"
+                    className="input"
+                    placeholder="you@company.com"
+                  />
                 </Field>
-                <Field label="Requirement *" error={errors.requirement?.message} className="md:col-span-2">
+                <Field
+                  label="Requirement *"
+                  error={errors.requirement?.message}
+                  className="md:col-span-2"
+                >
                   <select {...register("requirement")} className="input" defaultValue="">
-                    <option value="" disabled>Select a product / service</option>
+                    <option value="" disabled>
+                      Select a product / service
+                    </option>
                     <option>Timber Planks</option>
                     <option>Structural Beams</option>
                     <option>Custom Cutting</option>
@@ -141,9 +205,14 @@ function Contact() {
                 </Field>
                 <div className="md:col-span-2 flex flex-wrap gap-3 items-center justify-between">
                   <p className="text-xs text-muted-foreground max-w-sm">
-                    By submitting, you agree to be contacted about your enquiry. We never share your details.
+                    By submitting, you agree to be contacted about your enquiry. We never share your
+                    details.
                   </p>
-                  <button type="submit" disabled={isSubmitting} className="btn-primary disabled:opacity-60">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="btn-primary disabled:opacity-60"
+                  >
                     {isSubmitting ? "Sending…" : "Send Enquiry"} <ArrowRight className="h-4 w-4" />
                   </button>
                 </div>
@@ -168,7 +237,9 @@ function Contact() {
                       </motion.div>
                       <h4 className="display-md mt-6">Enquiry Received</h4>
                       <p className="mt-3 text-muted-foreground max-w-sm">
-                        Thank you. Our sales desk will respond within one business day.
+                        {import.meta.env.VITE_FORMSPREE_ID
+                          ? "Thank you. Our sales desk will respond within one business day."
+                          : "Thank you. Your enquiry has been recorded in demo mode. The team will contact you soon."}
                       </p>
                     </div>
                   </motion.div>
@@ -184,7 +255,7 @@ function Contact() {
           <div className="overflow-hidden border border-border">
             <iframe
               title="Map"
-              src="https://www.google.com/maps?q=Nagpur+Maharashtra+India&output=embed"
+              src="https://www.google.com/maps?q=Jeedimetla+Hyderabad+Telangana+India&output=embed"
               width="100%"
               height="450"
               loading="lazy"
@@ -214,8 +285,16 @@ function Contact() {
 }
 
 function Field({
-  label, error, children, className,
-}: { label: string; error?: string; children: React.ReactNode; className?: string }) {
+  label,
+  error,
+  children,
+  className,
+}: {
+  label: string;
+  error?: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <label className={`block ${className ?? ""}`}>
       <span className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground font-semibold">

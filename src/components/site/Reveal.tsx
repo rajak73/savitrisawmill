@@ -30,22 +30,25 @@ export function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
 
   useEffect(() => {
     if (!ref.current) return;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting && !started.current) {
-          started.current = true;
-          const start = performance.now();
-          const dur = 1600;
-          const tick = (now: number) => {
-            const p = Math.min(1, (now - start) / dur);
-            const eased = 1 - Math.pow(1 - p, 3);
-            setV(Math.round(to * eased));
-            if (p < 1) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
-        }
-      });
-    }, { threshold: 0.3 });
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting && !started.current) {
+            started.current = true;
+            const start = performance.now();
+            const dur = 1600;
+            const tick = (now: number) => {
+              const p = Math.min(1, (now - start) / dur);
+              const eased = 1 - Math.pow(1 - p, 3);
+              setV(Math.round(to * eased));
+              if (p < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          }
+        });
+      },
+      { threshold: 0.3 },
+    );
     io.observe(ref.current);
     return () => io.disconnect();
   }, [to]);

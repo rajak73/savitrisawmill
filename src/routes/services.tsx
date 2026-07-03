@@ -1,6 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, ChevronDown, Hammer, Truck, Cog, Factory, ShieldCheck, Award } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronDown,
+  Hammer,
+  Truck,
+  Cog,
+  Factory,
+  ShieldCheck,
+  Award,
+} from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { SERVICES, FAQS } from "@/lib/site-data";
 import sawblade from "@/assets/sawblade.jpg";
@@ -9,9 +18,17 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Services — Custom Cutting, Bulk Supply & Industrial Processing" },
-      { name: "description", content: "End-to-end timber services: custom cutting, bulk supply, precision milling, kiln drying, export-grade packaging and logistics." },
+      {
+        name: "description",
+        content:
+          "End-to-end timber services: custom cutting, bulk supply, precision milling, kiln drying, export-grade packaging and logistics.",
+      },
       { property: "og:title", content: "Services — Savitri Saw Mill" },
-      { property: "og:description", content: "Custom wood cutting, bulk timber supply, precision milling and industrial processing." },
+      {
+        property: "og:description",
+        content:
+          "Custom wood cutting, bulk timber supply, precision milling and industrial processing.",
+      },
       { property: "og:url", content: "/services" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
@@ -25,7 +42,12 @@ function Services() {
   return (
     <>
       <section className="relative bg-primary text-white pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
-        <img src={sawblade} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-25" />
+        <img
+          src={sawblade}
+          alt=""
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover opacity-25"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/50" />
         <div className="relative container-x">
           <Reveal>
@@ -106,9 +128,13 @@ function Faq({ q, a, index }: { q: string; a: string; index: number }) {
         className="w-full flex items-center justify-between gap-4 py-6 text-left"
       >
         <span className="font-display text-lg md:text-xl uppercase">{q}</span>
-        <ChevronDown className={`h-5 w-5 shrink-0 text-highlight transition-transform ${open ? "rotate-180" : ""}`} />
+        <ChevronDown
+          className={`h-5 w-5 shrink-0 text-highlight transition-transform ${open ? "rotate-180" : ""}`}
+        />
       </button>
-      <div className={`overflow-hidden transition-all duration-300 ${open ? "max-h-40 pb-6" : "max-h-0"}`}>
+      <div
+        className={`overflow-hidden transition-all duration-300 ${open ? "max-h-40 pb-6" : "max-h-0"}`}
+      >
         <p className="text-muted-foreground leading-relaxed">{a}</p>
       </div>
     </div>

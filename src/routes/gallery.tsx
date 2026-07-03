@@ -9,9 +9,15 @@ export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
       { title: "Gallery — Savitri Saw Mill Facility & Machinery" },
-      { name: "description", content: "A visual tour of our facility, machinery, timber yard and finished products." },
+      {
+        name: "description",
+        content: "A visual tour of our facility, machinery, timber yard and finished products.",
+      },
       { property: "og:title", content: "Gallery — Savitri Saw Mill" },
-      { property: "og:description", content: "Inside Savitri Saw Mill — facility, machinery and finished timber." },
+      {
+        property: "og:description",
+        content: "Inside Savitri Saw Mill — facility, machinery and finished timber.",
+      },
       { property: "og:url", content: "/gallery" },
     ],
     links: [{ rel: "canonical", href: "/gallery" }],
@@ -28,12 +34,10 @@ function Gallery() {
         <div className="container-x">
           <Reveal>
             <div className="eyebrow text-highlight">Gallery</div>
-            <h1 className="display-xl mt-6 text-white max-w-4xl">
-              Inside the mill.
-            </h1>
+            <h1 className="display-xl mt-6 text-white max-w-4xl">Inside the mill.</h1>
             <p className="mt-8 max-w-2xl text-lg text-white/70">
-              The machinery, the timber, the people. A look inside the operation that turns
-              raw logs into the components our clients build with.
+              The machinery, the timber, the people. A look inside the operation that turns raw logs
+              into the components our clients build with.
             </p>
           </Reveal>
         </div>

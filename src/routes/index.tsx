@@ -1,13 +1,33 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
-  ArrowRight, ArrowUpRight, ShieldCheck, Cog, Truck, Award,
-  Hammer, TreePine, Factory, Building2, Sofa, Palette, Wrench, Landmark, Quote
+  ArrowRight,
+  ArrowUpRight,
+  ShieldCheck,
+  Cog,
+  Truck,
+  Award,
+  Hammer,
+  TreePine,
+  Factory,
+  Building2,
+  Sofa,
+  Palette,
+  Wrench,
+  Landmark,
+  Quote,
 } from "lucide-react";
 import heroImg from "@/assets/hero-sawmill.jpg";
 import { Reveal, Counter } from "@/components/site/Reveal";
 import {
-  COMPANY, STATS, PRODUCTS, SERVICES, WHY_US, PROCESS, INDUSTRIES, TESTIMONIALS
+  COMPANY,
+  STATS,
+  PRODUCTS,
+  SERVICES,
+  WHY_US,
+  PROCESS,
+  INDUSTRIES,
+  TESTIMONIALS,
 } from "@/lib/site-data";
 import facility from "@/assets/facility.jpg";
 import worker from "@/assets/worker.jpg";
@@ -16,9 +36,17 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Savitri Saw Mill — Quality Timber. Precision Cutting. Trusted Manufacturing." },
-      { name: "description", content: "Premium timber processing solutions for construction, furniture manufacturing and industrial applications. Trusted since 1987." },
+      {
+        name: "description",
+        content:
+          "Premium timber processing solutions for construction, furniture manufacturing and industrial applications. Trusted since 1987.",
+      },
       { property: "og:title", content: "Savitri Saw Mill — Precision Timber Manufacturing" },
-      { property: "og:description", content: "Bulk timber supply, custom cutting and industrial-grade wood processing. Pan-India delivery." },
+      {
+        property: "og:description",
+        content:
+          "Bulk timber supply, custom cutting and industrial-grade wood processing. Pan-India delivery.",
+      },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -55,17 +83,18 @@ function Home() {
           >
             <div className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-white/70">
               <span className="h-px w-10 bg-highlight" />
-              Est. {COMPANY.established} · Nagpur, India
+              Est. {COMPANY.established} · Hyderabad, India
             </div>
             <h1 className="display-xl mt-8 text-white">
-              Quality Timber.<br />
-              Precision Cutting.<br />
+              Quality Timber.
+              <br />
+              Precision Cutting.
+              <br />
               <span className="text-highlight">Trusted</span> Manufacturing.
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/75">
-              Premium timber processing solutions for construction, furniture
-              manufacturing and industrial applications — built on four decades of
-              craft and modern engineering.
+              Premium timber processing solutions for construction, furniture manufacturing and
+              industrial applications — built on four decades of craft and modern engineering.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link to="/products" className="btn-primary">
@@ -107,13 +136,13 @@ function Home() {
             </h2>
             <p className="mt-8 text-base leading-relaxed text-muted-foreground">
               Savitri Saw Mill was founded in {COMPANY.established} as a single-saw operation
-              serving local builders. Today, we operate a fully integrated facility with
-              modern band mills, kiln dryers and CNC profilers — processing over 120 m³ of
-              timber every day for clients across India.
+              serving local builders. Today, we operate a fully integrated facility with modern band
+              mills, kiln dryers and CNC profilers — processing over 120 m³ of timber every day for
+              clients across India.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              We exist for one reason: to deliver timber that arrives square, stable and on
-              spec — every time. No surprises, no rework.
+              We exist for one reason: to deliver timber that arrives square, stable and on spec —
+              every time. No surprises, no rework.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link to="/about" className="btn-ghost-dark">
@@ -139,8 +168,8 @@ function Home() {
               <div className="absolute -bottom-8 -left-4 md:-left-8 max-w-xs bg-primary text-primary-foreground p-6 shadow-industrial">
                 <div className="eyebrow text-highlight">Mission</div>
                 <p className="mt-3 text-sm leading-relaxed">
-                  To set the regional benchmark for precision, reliability and integrity
-                  in timber manufacturing.
+                  To set the regional benchmark for precision, reliability and integrity in timber
+                  manufacturing.
                 </p>
               </div>
             </div>
@@ -187,7 +216,10 @@ function Home() {
                     </p>
                     <div className="mt-5 flex flex-wrap gap-1.5">
                       {p.applications.slice(0, 3).map((a) => (
-                        <span key={a} className="text-[10px] uppercase tracking-wider px-2 py-1 bg-muted border border-border text-muted-foreground">
+                        <span
+                          key={a}
+                          className="text-[10px] uppercase tracking-wider px-2 py-1 bg-muted border border-border text-muted-foreground"
+                        >
                           {a}
                         </span>
                       ))}
@@ -240,12 +272,10 @@ function Home() {
         <div className="container-x grid gap-16 lg:grid-cols-12">
           <Reveal className="lg:col-span-4">
             <div className="eyebrow text-highlight">04 — Why Choose Us</div>
-            <h2 className="display-lg mt-6 text-white">
-              Built on trust. Backed by craft.
-            </h2>
+            <h2 className="display-lg mt-6 text-white">Built on trust. Backed by craft.</h2>
             <p className="mt-6 text-primary-foreground/70 leading-relaxed">
-              We don't compete on price alone. We compete on the quality you can feel,
-              measure, and ship with confidence.
+              We don't compete on price alone. We compete on the quality you can feel, measure, and
+              ship with confidence.
             </p>
           </Reveal>
           <div className="lg:col-span-8">
@@ -369,8 +399,8 @@ function Home() {
               Need high-quality timber for your next project?
             </h2>
             <p className="mt-8 text-lg text-white/75 max-w-xl">
-              Send us your requirement. You'll hear back from our sales desk within one
-              business day with a quote, lead time and sample availability.
+              Send us your requirement. You'll hear back from our sales desk within one business day
+              with a quote, lead time and sample availability.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <Link to="/contact" className="btn-primary">

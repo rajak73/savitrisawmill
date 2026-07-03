@@ -26,7 +26,9 @@ function NotFoundComponent() {
           <p className="mt-3 text-sm text-muted-foreground">
             The page you're looking for doesn't exist or has been moved.
           </p>
-          <Link to="/" className="btn-primary mt-8">Back to Home</Link>
+          <Link to="/" className="btn-primary mt-8">
+            Back to Home
+          </Link>
         </div>
       </main>
       <Footer />
@@ -46,8 +48,18 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         <h1 className="display-md">Something went wrong</h1>
         <p className="mt-3 text-sm text-muted-foreground">Try again or head back home.</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
-          <button onClick={() => { router.invalidate(); reset(); }} className="btn-primary">Try Again</button>
-          <a href="/" className="btn-ghost-dark">Home</a>
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="btn-primary"
+          >
+            Try Again
+          </button>
+          <a href="/" className="btn-ghost-dark">
+            Home
+          </a>
         </div>
       </div>
     </div>
@@ -60,7 +72,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Savitri Saw Mill — Quality Timber. Precision Cutting." },
-      { name: "description", content: "Premium timber processing for construction, furniture and industrial applications. Bulk supply, custom cutting and pan-India delivery." },
+      {
+        name: "description",
+        content:
+          "Premium timber processing for construction, furniture and industrial applications. Bulk supply, custom cutting and pan-India delivery.",
+      },
       { name: "author", content: "Savitri Saw Mill" },
       { property: "og:site_name", content: "Savitri Saw Mill" },
       { property: "og:type", content: "website" },
@@ -68,16 +84,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "theme-color", content: "#1F2937" },
       { property: "og:title", content: "Savitri Saw Mill — Quality Timber. Precision Cutting." },
       { name: "twitter:title", content: "Savitri Saw Mill — Quality Timber. Precision Cutting." },
-      { property: "og:description", content: "Premium timber processing for construction, furniture and industrial applications. Bulk supply, custom cutting and pan-India delivery." },
-      { name: "twitter:description", content: "Premium timber processing for construction, furniture and industrial applications. Bulk supply, custom cutting and pan-India delivery." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8f0825ab-1c89-4c7c-a3a1-ce43b9e1750d/id-preview-e69300ef--21383a2d-f6c8-4023-8ea3-127a7dc6ad1a.lovable.app-1782396548471.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8f0825ab-1c89-4c7c-a3a1-ce43b9e1750d/id-preview-e69300ef--21383a2d-f6c8-4023-8ea3-127a7dc6ad1a.lovable.app-1782396548471.png" },
+      {
+        property: "og:description",
+        content:
+          "Premium timber processing for construction, furniture and industrial applications. Bulk supply, custom cutting and pan-India delivery.",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Premium timber processing for construction, furniture and industrial applications. Bulk supply, custom cutting and pan-India delivery.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8f0825ab-1c89-4c7c-a3a1-ce43b9e1750d/id-preview-e69300ef--21383a2d-f6c8-4023-8ea3-127a7dc6ad1a.lovable.app-1782396548471.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8f0825ab-1c89-4c7c-a3a1-ce43b9e1750d/id-preview-e69300ef--21383a2d-f6c8-4023-8ea3-127a7dc6ad1a.lovable.app-1782396548471.png",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
